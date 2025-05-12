@@ -1,5 +1,5 @@
 [Unit]
-Description=Prometheus Exporter for nodejs-poolController
+Description=Prometheus Exporter for nodejs-poolController v1.0.0
 After=network.target
 
 [Service]

@@ -11,8 +11,12 @@ cd /opt/njspc-exporter
 python3 -m venv njspc
 source njspc/bin/activate
 
-# Install requirements
-pip install -r /opt/njspc-exporter/requirements.txt
+# Install toml
+pip install toml
+
+# Create requirements file and install remaining requirements
+python3 -c 'import toml; c = toml.load("/opt/njspc-exporter/pyproject.toml"); print("\n".join(c["project"]["dependencies"]))' > /tmp/requirements.txt 
+pip install -r /tmp/requirements.txt
 
 # Deactivate venv
 deactivate

@@ -2,7 +2,7 @@
 
 SHELL := /usr/bin/env bash -euo pipefail -c
 
-install: create-user-group create-dir copy-files create-venv enable-service
+install: create-user-group create-dir copy-files create-venv enable-service status
 
 create-dir:
 	@echo "Create dir /opt/njspc-exporter."
@@ -21,8 +21,8 @@ copy-files:
 	@chown njspc-exporter:njspc-exporter /opt/njspc-exporter/njspc-exporter.py
 	@chmod 755 /opt/njspc-exporter/njspc-exporter.py
 
-	@cp ./requirements.txt /opt/njspc-exporter/requirements.txt
-	@chown njspc-exporter:njspc-exporter /opt/njspc-exporter/requirements.txt
+	@cp ./pyproject.toml /opt/njspc-exporter/pyproject.toml
+	@chown njspc-exporter:njspc-exporter /opt/njspc-exporter/pyproject.toml
 
 	@cp ./njspc-exporter.service /etc/systemd/system/njspc-exporter.service
 	@echo
