@@ -14,12 +14,12 @@ Prometheus Exporter for [nodejs-poolController](https://github.com/tagyoureit/no
 - temp (Pool) 
 
 
-## Export metrics from pumps[0]:
+## Exports metrics from pumps[0]:
 - rpm 
 - gpm (gallons per minute)
 - watts (Pump)
 
-Allows creation of Grafana dashboards like the following.
+## Allows creation of Grafana dashboards like the following.
 ![](./images/dashboard.png)
 
 # How to Install
