@@ -26,7 +26,12 @@ collection_frequency = 15
 njspc_url = "http://localhost:4200"
 
 
-class RandomNumberCollector(object):
+njspc_url = "http://localhost:4200"
+
+
+class PoolMetricsCollector(object):
+    def __init__(self):
+        pass
     def __init__(self):
         pass
 
