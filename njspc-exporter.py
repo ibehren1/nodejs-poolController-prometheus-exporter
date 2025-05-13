@@ -33,7 +33,20 @@ class RandomNumberCollector(object):
     def collect(self):
 
         # Call njspc for state of all resources
+# Call njspc for state of all resources
         http = urllib3.PoolManager()
+        try:
+            r = http.request("GET", f"{njspc_url}/state/all")
+            data = json.loads(r.data)
+        except urllib3.exceptions.HTTPError as e:
+            print(f"HTTP request failed: {e}")
+            return
+        except json.JSONDecodeError as e:
+            print(f"JSON parsing failed: {e}")
+            return
+
+        # Set short vars for values we care about
+        pool_ph = data["chemControllers"][0]["ph"]["probe"]["level"]
         r = http.request("GET", f"{njspc_url}/state/all")
         data = json.loads(r.data)
 
