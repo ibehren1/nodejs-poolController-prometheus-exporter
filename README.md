@@ -19,6 +19,8 @@ Prometheus Exporter for [nodejs-poolController](https://github.com/tagyoureit/no
 - gpm (gallons per minute)
 - watts (Pump)
 
+Allows creation of Grafana dashboards like the following.
+![](./images/dashboard.png)
 
 # How to Install
 ## Step 1 - Clone Project
