@@ -1,0 +1,14 @@
+[Unit]
+Description=Prometheus Exporter for nodejs-poolController v1.0.0
+After=network.target
+
+[Service]
+Type=simple
+User=njspc-exporter
+WorkingDirectory=/opt/njspc-exporter
+ExecStart=/opt/njspc-exporter/njspc/bin/python3 /opt/njspc-exporter/njspc-exporter.py
+Restart=on-failure
+RestartSec=15s
+
+[Install]
+WantedBy=multi-user.target
