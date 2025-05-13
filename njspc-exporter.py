@@ -13,7 +13,15 @@ from prometheus_client.core import (
 from prometheus_client import start_http_server
 
 # Constants
-port = 9101
+from prometheus_client import start_http_server
+
+# Constants
+port = 9101  # Port number for the Prometheus HTTP server
+collection_frequency = 15  # Time interval (in seconds) between data collections
+njspc_url = "http://localhost:4200"  # URL of the njspc service for fetching pool data
+
+
+class RandomNumberCollector(object):
 collection_frequency = 15
 njspc_url = "http://localhost:4200"
 
