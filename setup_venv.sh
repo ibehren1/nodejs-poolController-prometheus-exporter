@@ -35,7 +35,36 @@ source njspc/bin/activate
 pip install toml
 
 # Create requirements file and install remaining requirements
-python3 -c 'import toml; c = toml.load("/opt/njspc-exporter/pyproject.toml"); print("\n".join(c["project"]["dependencies"]))' > /tmp/requirements.txt 
+#!/usr/bin/env bash
+# Copyright © 2025 Isaac Behrens. All rights reserved.
+
+# Script should be run as user njspc-exporter.
+
+export HOME=/opt/njspc-exporter
+
+cd /opt/njspc-exporter
+
+# Create/activate venv
+python3 -m venv njspc
+source njspc/bin/activate
+
+# Install toml
+pip install toml
+
+# Create requirements file and install remaining requirements
+python3 <<EOF
+import toml
+config = toml.load("/opt/njspc-exporter/pyproject.toml")
+with open("/tmp/requirements.txt", "w") as f:
+    f.write("
+".join(config["project"]["dependencies"]))
+EOF
+pip install -r /tmp/requirements.txt
+
+# Deactivate venv
+deactivate
+
+exit 0
 pip install -r /tmp/requirements.txt
 
 # Deactivate venv
