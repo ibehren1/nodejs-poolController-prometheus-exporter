@@ -13,32 +13,18 @@ from prometheus_client.core import (
 from prometheus_client import start_http_server
 
 # Constants
-from prometheus_client import start_http_server
-
-# Constants
 port = 9101  # Port number for the Prometheus HTTP server
 collection_frequency = 15  # Time interval (in seconds) between data collections
 njspc_url = "http://localhost:4200"  # URL of the njspc service for fetching pool data
 
 
-class RandomNumberCollector(object):
-collection_frequency = 15
-njspc_url = "http://localhost:4200"
-
-
-njspc_url = "http://localhost:4200"
-
-
 class PoolMetricsCollector(object):
-    def __init__(self):
-        pass
     def __init__(self):
         pass
 
     def collect(self):
 
         # Call njspc for state of all resources
-# Call njspc for state of all resources
         http = urllib3.PoolManager()
         try:
             r = http.request("GET", f"{njspc_url}/state/all")
@@ -49,24 +35,6 @@ class PoolMetricsCollector(object):
         except json.JSONDecodeError as e:
             print(f"JSON parsing failed: {e}")
             return
-
-        # Set short vars for values we care about
-        pool_ph = data["chemControllers"][0]["ph"]["probe"]["level"]
-# Call njspc for state of all resources
-        http = urllib3.PoolManager()
-        try:
-            r = http.request("GET", f"{njspc_url}/state/all")
-            data = json.loads(r.data)
-        except urllib3.exceptions.HTTPError as e:
-            print(f"HTTP request failed: {e}")
-            return
-        except json.JSONDecodeError as e:
-            print(f"JSON decoding failed: {e}")
-            return
-
-        # Set short vars for values we care about
-        pool_ph = data["chemControllers"][0]["ph"]["probe"]["level"]
-        data = json.loads(r.data)
 
         # Set short vars for values we care about
         pool_ph = data["chemControllers"][0]["ph"]["probe"]["level"]
@@ -126,7 +94,7 @@ class PoolMetricsCollector(object):
 
 if __name__ == "__main__":
     start_http_server(port)
-    REGISTRY.register(RandomNumberCollector())
+    REGISTRY.register(PoolMetricsCollector())
 
     while True:
         time.sleep(collection_frequency)
