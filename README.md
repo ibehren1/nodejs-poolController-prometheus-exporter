@@ -1,5 +1,5 @@
 # nodejs-poolController-prometheus-exporter
-Prometheus Exporter for nodejs-poolController  
+Prometheus Exporter for [nodejs-poolController](https://github.com/tagyoureit/nodejs-poolController?tab=readme-ov-file)  
 - runs on port 9101
 - should be run on same host as nodejs-poolController
 - connects to http://localhost:4200/state/all to pull metrics
