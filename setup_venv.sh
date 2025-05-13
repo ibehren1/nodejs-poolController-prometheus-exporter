@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 # Copyright © 2025 Isaac Behrens. All rights reserved.
 
-# Script shoule be run as user njspc-exporter.
+#!/usr/bin/env bash
+# Copyright © 2025 Isaac Behrens. All rights reserved.
+
+# Script should be run as user njspc-exporter.
+
+export HOME=/opt/njspc-exporter
 
 export HOME=/opt/njspc-exporter
 
