@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Copyright © 2025 Isaac Behrens. All rights reserved.
 # Copyright © 2025 Isaac Behrens. All rights reserved.
+# Copyright © 2025 Isaac Behrens. All rights reserved.
 
 #!/usr/bin/env bash
 # Copyright © 2025 Isaac Behrens. All rights reserved.
