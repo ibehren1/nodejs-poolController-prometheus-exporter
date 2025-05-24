@@ -1,6 +1,6 @@
 [project]
 name = "njspc-exporter"
-version = "1.0.0"
+version = "1.0.1"
 description = "Prometheus Exporter for nodejs-poolController"
 authors = [{ name = "Isaac Behrens", email = "isaac@behrenshome.com" }]
 maintainers = [{ name = "Isaac Behrens", email = "isaac@behrenshome.com" }]
