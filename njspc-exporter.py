@@ -85,7 +85,7 @@ class PoolMetricsCollector(object):
         yield temp
 
         air_temp = GaugeMetricFamily("Air_Temp", "Air Temp (F)", labels=["air_temp"])
-        temp.add_metric(["air_temp"], pool_air_temp)
+        air_temp.add_metric(["air_temp"], pool_air_temp)
         yield air_temp
 
         gpm = GaugeMetricFamily("GPM", "GPM value", labels=["gpm"])
