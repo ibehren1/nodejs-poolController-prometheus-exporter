@@ -44,6 +44,7 @@ class PoolMetricsCollector(object):
         pool_ch = data["chemControllers"][0]["calciumHardness"]
         pool_lsi = data["chemControllers"][0]["lsi"]
         pool_temp = data["chemControllers"][0]["ph"]["probe"]["temperature"]
+        air_temp = data["temps"]["air"]
         pump_rpm = data["pumps"][0]["rpm"]
         pump_watts = data["pumps"][0]["watts"]
         pump_flow = data["pumps"][0]["flow"]
@@ -82,6 +83,10 @@ class PoolMetricsCollector(object):
         temp = GaugeMetricFamily("Temp", "Temp (F)", labels=["temp"])
         temp.add_metric(["temp"], pool_temp)
         yield temp
+
+        air_temp = GaugeMetricFamily("Air Temp", "Air Temp (F)", labels=["air_temp"])
+        temp.add_metric(["air_temp"], air_temp)
+        yield air_temp
 
         gpm = GaugeMetricFamily("GPM", "GPM value", labels=["gpm"])
         gpm.add_metric(["gpm"], pump_flow)
